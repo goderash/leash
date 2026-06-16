@@ -1,0 +1,16 @@
+{
+  "//": "Copy the hooks block into .claude/settings.json (project) or ~/.claude/settings.json (global). Requires a global install: npm i -g leash-agent. Running from a local clone instead? Replace the command with: node --experimental-strip-types --disable-warning=ExperimentalWarning /ABSOLUTE_PATH/leash/bin/leash.ts hook",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash|Write|Edit|MultiEdit|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "leash hook"
+          }
+        ]
+      }
+    ]
+  }
+}
