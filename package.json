@@ -1,0 +1,56 @@
+{
+  "name": "leash-agent",
+  "version": "0.1.0",
+  "description": "Keep your coding agent on a leash. Block destructive commands, cap runaway sessions, and get a tamper-evident replay log of everything your AI agent does — with one-command undo.",
+  "type": "module",
+  "bin": {
+    "leash": "dist/leash.js"
+  },
+  "files": [
+    "dist",
+    "skill",
+    "examples",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepare": "node scripts/build.mjs",
+    "dev": "node --experimental-strip-types --disable-warning=ExperimentalWarning bin/leash.ts",
+    "test": "node --test --experimental-strip-types --disable-warning=ExperimentalWarning tests/policy.test.ts tests/ledger.test.ts tests/guard.test.ts",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "claude-code",
+    "claude",
+    "codex",
+    "cursor",
+    "gemini-cli",
+    "ai-agent",
+    "coding-agent",
+    "guardrails",
+    "agent-safety",
+    "hooks",
+    "audit-log",
+    "agent-governance",
+    "skill"
+  ],
+  "homepage": "https://github.com/goderash/leash#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goderash/leash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/goderash/leash/issues"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.19.21",
+    "esbuild": "^0.24.2",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
