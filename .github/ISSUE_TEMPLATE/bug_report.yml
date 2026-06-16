@@ -1,0 +1,46 @@
+name: 🐛 Bug report
+description: Something leash did wrong — blocked a safe action, missed a dangerous one, or crashed.
+labels: [bug]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of bug?
+      options:
+        - "False positive (blocked something safe)"
+        - "False negative (let something dangerous through)"
+        - "Crash / hook error"
+        - "CLI / report / undo issue"
+        - "Other"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include the exact command or file path, and what leash decided.
+      placeholder: |
+        Agent ran `git push --force-with-lease` and leash blocked it (expected allow).
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: harness
+    attributes:
+      label: Harness
+      placeholder: "Claude Code 2.x / Codex / Cursor / …"
+  - type: input
+    id: versions
+    attributes:
+      label: leash + Node version
+      placeholder: "leash 0.1.0, node 22.17.1"
+  - type: textarea
+    id: config
+    attributes:
+      label: Relevant .leash/leash.config.json (if customized)
+      render: json
