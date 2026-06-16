@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.leash/ledger.jsonl
+.leash/snapshots/
+.leash/report.html
+*.log
+.DS_Store
