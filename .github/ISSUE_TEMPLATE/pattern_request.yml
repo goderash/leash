@@ -1,0 +1,31 @@
+name: 🛑 New guardrail pattern
+description: Suggest a destructive command or file pattern leash should block or hold.
+labels: [pattern]
+body:
+  - type: textarea
+    id: command
+    attributes:
+      label: The dangerous command / path
+      description: The exact form an agent might run.
+      placeholder: "flyctl apps destroy <name> --yes"
+    validations:
+      required: true
+  - type: dropdown
+    id: decision
+    attributes:
+      label: Should it be blocked or held for review?
+      options:
+        - "block (almost never wanted autonomously)"
+        - "ask (sometimes legitimate)"
+    validations:
+      required: true
+  - type: textarea
+    id: benign
+    attributes:
+      label: A benign neighbor that must NOT be flagged
+      description: Helps us avoid false positives.
+      placeholder: "flyctl apps list"
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it's dangerous
